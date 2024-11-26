@@ -1,0 +1,16 @@
+.letra-titulo{
+    font-family: "Sour Gummy";
+    font-weight: bold;
+}
+
+/* .background-bonito{
+    background-image: url(../src/assets/lang.jpg);
+    background-repeat: repeat;
+}
+.background-bonito::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: #7bffb69a;
+} */
