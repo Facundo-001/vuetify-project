@@ -1,51 +1,53 @@
 <template>
-    <v-container class="py-4">
-      <!-- Categoría principal -->
-      <v-card class="main-category">
-        <!-- Contenedor del texto -->
-        <div class="glass-content">
-          <v-card-title class="title">Categoría de Información</v-card-title>
-          <v-card-text>
-            Explora las diferentes categorías de información en esta sección. Haz clic en cada tarjeta para más detalles.
-          </v-card-text>
-        </div>
-      </v-card>
-  
-      <!-- Tarjetas de información -->
-      <v-row>
-        <v-col
-          v-for="(item, index) in items"
-          :key="index"
-          cols="12"
-          md="6"
-          lg="4"
-        >
-          <v-card class="info-card">
-            <v-card-title class="info-title">
-              {{ item.title }}
-            </v-card-title>
+    <v-main style="background: url('https://wallpapers.com/images/hd/warframe-tenno-ancient-soldier-msans4eaku86x17x.jpg'); background-size: cover;">
+        <v-container class="py-4">
+        <!-- Categoría principal -->
+        <v-card class="main-category">
+            <!-- Contenedor del texto -->
+            <div class="glass-content">
+            <v-card-title class="title">Categoría de Información</v-card-title>
             <v-card-text>
-              <div class="text-truncate">
-                {{ item.shortDescription }}
-              </div>
-              <v-expand-transition>
-                <div v-if="expandedCard === index" class="expanded-text mt-2">
-                  {{ item.fullDescription }}
-                </div>
-              </v-expand-transition>
+                Explora las diferentes categorías de información en esta sección. Haz clic en cada tarjeta para más detalles.
             </v-card-text>
-            <v-card-actions>
-              <v-btn
-                color="primary"
-                @click="toggleExpand(index)"
-              >
-                {{ expandedCard === index ? "Ver menos" : "Ver más" }}
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-container>
+            </div>
+        </v-card>
+    
+        <!-- Tarjetas de información -->
+        <v-row>
+            <v-col
+            v-for="(item, index) in items"
+            :key="index"
+            cols="12"
+            md="6"
+            lg="4"
+            >
+            <v-card class="info-card">
+                <v-card-title class="info-title">
+                {{ item.title }}
+                </v-card-title>
+                <v-card-text>
+                <div class="text-truncate">
+                    {{ item.shortDescription }}
+                </div>
+                <v-expand-transition>
+                    <div v-if="expandedCard === index" class="expanded-text mt-2">
+                    {{ item.fullDescription }}
+                    </div>
+                </v-expand-transition>
+                </v-card-text>
+                <v-card-actions>
+                <v-btn
+                    color="primary"
+                    @click="toggleExpand(index)"
+                >
+                    {{ expandedCard === index ? "Ver menos" : "Ver más" }}
+                </v-btn>
+                </v-card-actions>
+            </v-card>
+            </v-col>
+        </v-row>
+        </v-container>
+    </v-main>
   </template>
   
   <script>

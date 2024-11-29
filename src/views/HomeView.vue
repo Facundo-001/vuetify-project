@@ -1,9 +1,9 @@
 <template>
   <v-app>
-    <v-main>
+    <v-main style="background: url('https://preview.redd.it/jnhor8nex8451.jpg?auto=webp&s=4f2050e4d3b972a493db41aceda160d4017b42ea'); background-size: cover; background-position: center;">
       <!-- Contenedor principal -->
       <v-container class="py-5">
-        <v-row class="background-bonito ">
+        <v-row class="">
 
 
           <!-- Sidebar con info adicional -->
@@ -49,7 +49,7 @@
             <v-tabs-window v-model="tab">
               <v-tabs-window-item value="option-1">
                 <v-card flat>
-                  <v-card-text>
+                  <v-card-text style="background: transparent;">
                     <p>
                       Sed aliquam ultrices mauris. Donec posuere vulputate arcu. Morbi ac felis. Etiam feugiat lorem non metus. Sed a libero.
                     </p>
@@ -143,6 +143,56 @@
         </v-row>
       </v-container>
     </v-main>
+    <v-footer app dark color="grey darken-4">
+    <v-container class="py-5">
+      <v-row>
+        <!-- Sección de descripción -->
+        <v-col cols="12" md="4" class="text-center text-md-left">
+          <h3 class="text-primary text--lighten-1 font-weight-bold">Warframe Inicios</h3>
+          <p>
+            Comparte mi experiencia y consejos para iniciar en el universo de Warframe. Aprende sobre los Warframes, armas, y estrategias para dominar las misiones.
+          </p>
+        </v-col>
+
+        <!-- Enlaces útiles -->
+        <v-col cols="12" md="4" class="text-center text-md-left">
+          <h4 class="text-primary text--lighten-1 font-weight-bold">Enlaces Útiles</h4>
+          <v-list dense>
+            <v-list-item link href="#inicio">
+              <v-list-item-content>Inicio</v-list-item-content>
+            </v-list-item>
+            <v-list-item link href="#guias">
+              <v-list-item-content>Guías</v-list-item-content>
+            </v-list-item>
+            <v-list-item link href="#contacto">
+              <v-list-item-content>Contacto</v-list-item-content>
+            </v-list-item>
+          </v-list>
+        </v-col>
+
+        <!-- Redes Sociales -->
+        <v-col cols="12" md="4" class="text-center text-md-left">
+          <h4 class="text-primary text--lighten-1 font-weight-bold">Redes Sociales</h4>
+          <v-btn icon href="https://www.facebook.com" target="_blank">
+            <v-icon large>mdi-facebook</v-icon>
+          </v-btn>
+          <v-btn icon href="https://www.twitter.com" target="_blank">
+            <v-icon large>mdi-twitter</v-icon>
+          </v-btn>
+          <v-btn icon href="https://www.instagram.com" target="_blank">
+            <v-icon large>mdi-instagram</v-icon>
+          </v-btn>
+        </v-col>
+      </v-row>
+
+      <!-- Sección inferior -->
+      <v-row class="mt-5">
+        <v-col cols="12" class="text-center">
+          <small>&copy; 2024 Warframe Inicios. Todos los derechos reservados.</small>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-footer>
   </v-app>
 </template>
 
@@ -163,6 +213,10 @@ export default {
 
 .v-tabs {
   border-right: 1px solid #ddd;
+}
+
+.text-primary {
+  color: #00ffe4 !important; /* Azul brillante estilo Warframe */
 }
 
 .background-bonito {

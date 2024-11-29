@@ -18,3 +18,7 @@
     text-decoration: none; /* Quita el subrayado */
     color: inherit;        /* Usa el color del texto circundante */
 }  
+
+.v-app{
+    background: #222;
+}

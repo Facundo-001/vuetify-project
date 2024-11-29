@@ -5,7 +5,7 @@
       <v-app-bar-nav-icon @click="toggleDrawer" class="d-md-none"></v-app-bar-nav-icon>
       <v-toolbar-title>Warframe Inicios</v-toolbar-title>
       <v-spacer></v-spacer>
-      <span>Tu hora: {{ time }}</span>
+      <span class="ma-3">Tu hora: {{ time }}</span>
       <router-link class="none-desing" to="/">
         <v-btn text class="d-none d-md-flex">Home</v-btn>
       </router-link>
@@ -21,13 +21,16 @@
     <v-navigation-drawer v-model="drawer" app class="d-md-none">
       <v-list>
         <v-list-item-group>
+            <router-link class="none-desing" to="/">
+              <v-list-item-title>Home</v-list-item-title>
+            </router-link>
           <v-list-item>
-            <v-list-item-title>Home</v-list-item-title>
+            
           </v-list-item>
           <v-list-item>
             <v-list-item-title>Sorpresa</v-list-item-title>
           </v-list-item>
-          <router-link to="/more-info">
+          <router-link class="none-desing" to="/more-info">
             <v-list-item>
               <v-list-item-title>Info</v-list-item-title>
             </v-list-item>
@@ -74,3 +77,7 @@ export default {
   },
 };
 </script>
+<style scoped>
+
+
+</style>
