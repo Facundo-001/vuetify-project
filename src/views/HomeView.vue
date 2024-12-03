@@ -143,7 +143,7 @@
         </v-row>
       </v-container>
     </v-main>
-    <v-footer app dark color="grey darken-4">
+    <v-footer app class=" bg-indigo-darken-2">
     <v-container class="py-5">
       <v-row>
         <!-- Sección de descripción -->
