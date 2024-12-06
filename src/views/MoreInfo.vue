@@ -7,7 +7,7 @@
         min-height: calc(130vh - 64px); /* Ajusta para incluir el header si existe */
         display: flex;
         flex-direction: column;
-      "
+      " 
     >
       <v-container class="py-4 flex-grow-1">
         <!-- Categoría principal -->

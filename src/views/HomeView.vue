@@ -26,10 +26,59 @@
                   <v-list-item>
                     <v-list-item-title>Nuevo parche: 2.4.1</v-list-item-title>
                   </v-list-item>
+                  <!-- Botón secreto oculto -->
+                  <v-list-item>
+                    <v-btn
+                      class="hd"
+                      @click="handleSecretButtonClick"
+                    >
+                      Secret
+                    </v-btn>
+                  </v-list-item>
                 </v-list>
               </v-card-text>
             </v-card>
             
+
+    <!-- Diálogo para ingresar la fecha -->
+    <v-dialog v-model="dateDialog" max-width="400">
+      <v-card>
+        <v-card-title>
+          <span>Introduce la fecha secreta</span>
+        </v-card-title>
+        <v-card-text>
+          <v-text-field
+            label="Fecha (ejemplo: 3 de junio)"
+            v-model="secretDateInput"
+          ></v-text-field>
+        </v-card-text>
+        <v-card-actions>
+          <v-btn color="primary" @click="verifyDate">Confirmar</v-btn>
+          <v-btn color="secondary" @click="dateDialog = false">Cancelar</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
+    <!-- Segundo diálogo con contenido desbloqueado -->
+    <v-dialog v-model="unlockedDialog" max-width="700">
+      <v-card>
+        <v-card-title>
+          <span>¡Contenido Desbloqueado!</span>
+        </v-card-title>
+        <v-card-text>
+          <p>Musicas que me gustan y un poco sobre mi.</p>
+          <ul>
+            <li><video src="https://www.youtube.com/watch?v=fYYcuNw288s"></video></li>
+            <li><video src="https://www.youtube.com/watch?v=3dCy6TQd5lw"></video></li>
+            <li><video src="https://www.youtube.com/watch?v=v-1nwQgCc7I&list=RDMM&start_radio=1&rv=3dCy6TQd5lw"></video></li>
+          </ul>
+        </v-card-text>
+        <v-card-actions>
+          <v-btn color="primary" @click="unlockedDialog = false">Cerrar</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
           </v-col>
           <v-card>
           <v-toolbar color="primary" title="User Profile">
@@ -167,6 +216,8 @@
             <v-list-item link href="#contacto">
               <v-list-item-content>Contacto</v-list-item-content>
             </v-list-item>
+            <v-list-item>
+            </v-list-item>
           </v-list>
         </v-col>
 
@@ -185,10 +236,12 @@
         </v-col>
       </v-row>
 
+
       <!-- Sección inferior -->
       <v-row class="mt-5">
         <v-col cols="12" class="text-center">
           <small>&copy; 2024 Warframe Inicios. Todos los derechos reservados.</small>
+
         </v-col>
       </v-row>
     </v-container>
@@ -201,7 +254,30 @@ export default {
   data() {
     return {
       tab: "option-1", // Tab seleccionado
+      clickCount: 0, // Contador de clics en el botón secreto
+      dateDialog: false, // Estado del primer diálogo
+      unlockedDialog: false, // Estado del segundo diálogo
+      secretDateInput: "", // Entrada del usuario para la fecha secreta
     };
+  },
+  methods: {
+    handleSecretButtonClick() {
+      // Incrementa el contador y abre el diálogo si llega a 3
+      this.clickCount++;
+      if (this.clickCount === 10) {
+        this.dateDialog = true;
+        this.clickCount = 0; // Reinicia el contador
+      }
+    },
+    verifyDate() {
+      // Verifica si la fecha ingresada es correcta
+      if (this.secretDateInput.toLowerCase() == "20 de marzo") {
+        this.dateDialog = false;
+        this.unlockedDialog = true;
+      } else {
+        alert("Fecha incorrecta. Intenta de nuevo.");
+      }
+    },
   },
 };
 </script>
@@ -253,6 +329,12 @@ export default {
   text-align: center; /* Alineación opcional */
 }
 
+.hd{
+  opacity: 0;
+}
+.hd:hover{
+  opacity: 1;
+}
 
 @media (max-width: 768px) {
   .v-tabs {

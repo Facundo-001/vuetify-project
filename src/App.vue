@@ -19,7 +19,7 @@
     <v-menu
       open-on-hover
     >
-      <template v-slot:activator="{ props }">
+      <template class="d-none d-md-flex" v-slot:activator="{ props }">
         <v-btn
           v-bind="props"
         >
